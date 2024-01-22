@@ -1,0 +1,50 @@
+{% extends "head.html" %}
+
+{% block content %}
+    <form method="post" action="{{ url_for('main.create_song') }}">
+
+        <label for="title">
+            Title:
+            <input type="text" name="title" required>
+        </label>
+
+        <label for="artist">
+            Artist:
+            <input type="text" name="artist">
+        </label>
+
+
+        <label for="album">
+            Album:
+            <input type="text" name="album">
+        </label>
+
+
+        <label for="duration_seconds">
+            Duration (seconds):
+            <input type="number" name="duration_seconds">
+        </label>
+
+
+        <label for="genre">
+            Genre:
+            <input type="text" name="genre">
+        </label>
+
+
+        <label for="release_date">
+            Release Date:
+            <input type="text" name="release_date">
+        </label>
+
+
+        <label for="lyrics">
+            Lyrics:
+            <textarea name="lyrics" rows="5"></textarea>
+        </label>
+
+        <button type="submit" class="btn btn-success">Create Song</button>
+
+    </form>
+{% endblock %}
+
