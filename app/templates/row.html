@@ -1,0 +1,28 @@
+<tr>
+    <td>{{ song.id }}</td>
+    <td>{{ song.title }}</td>
+    <td>{{ song.artist }}</td>
+    <td>{{ song.album }}</td>
+    <td>{{ "%02d:%02d" % (song.duration_seconds // 60, song.duration_seconds % 60) }}</td>
+    <td>{{ song.genre }}</td>
+    <td>{{ song.release_date.strftime('%d/%m/%Y') }}</td>
+    <td>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <button class="btn" data-bs-toggle="modal" data-bs-target="#edit_modal{{ song.id }}" title="Edit">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </div>
+                <div class="col">
+                    <form method="post" action="{{ url_for('main.remove_song', song_id=song.id) }}">
+                        <button type="submit" class="btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Remove">
+                            <i class="bi bi-x-circle"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </td>
+</tr>
