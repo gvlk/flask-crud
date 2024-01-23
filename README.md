@@ -2,9 +2,9 @@
 
 A Flask CRUD application designed for managing songs in a PostgreSQL database
 
-<div style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
+<div align="center">
     <p>
-        <img src="screenshots/screenshot1.png" alt="Screenshot 1" width="300"/>
+        <img src="screenshots/screenshot1.png" alt="Screenshot 1" width="300" style="margin: 15px;"/>
     </p>
 </div>
 
