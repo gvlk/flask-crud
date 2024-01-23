@@ -1,6 +1,7 @@
 # Flask CRUD Application
-<div style="justify-content: center">
-    <img style="width: 200px" src="/screenshots/screenshot1.png" alt="Screenshot 1">
+
+<div style="text-align: center; margin-top: 15px; margin-bottom: 15px;">
+    <img style="width: 300px" src="/screenshots/screenshot1.png" alt="Screenshot 1">
 </div>
 
 This Flask CRUD (Create, Read, Update, Delete) application enables users to manage a list of songs, providing essential
