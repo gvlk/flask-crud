@@ -3,27 +3,23 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from psycopg2 import connect
 
-USERNAME = "postgres"
-PASSWORD = "root"
-HOST = "localhost"
-DATABASE = "flask_crud"
 
 db = SQLAlchemy()
 
 
-def setup_app() -> tuple[Flask, SQLAlchemy]:
+def setup_app(username: str, password: str, host: str, database: str) -> tuple[Flask, SQLAlchemy]:
 	try:
-		conn = connect(user=USERNAME, password=PASSWORD, host=HOST)
+		conn = connect(user=username, password=password, host=host)
 		cursor = conn.cursor()
 		conn.autocommit = True
-		cursor.execute(f'CREATE DATABASE {DATABASE}')
+		cursor.execute(f'CREATE DATABASE {database}')
 		cursor.close()
 		conn.close()
 	except psycopg2.errors.DuplicateDatabase:
-		print(f"Database {DATABASE} already exists")
+		print(f"Database {database} already exists")
 
 	app = Flask(__name__)
-	app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{USERNAME}:{PASSWORD}@{HOST}/{DATABASE}"
+	app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{username}:{password}@{host}/{database}"
 	app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 	from .views import main_bp
